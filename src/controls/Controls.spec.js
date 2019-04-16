@@ -1,6 +1,6 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import { render, cleanup } from "react-testing-library"
+import { render, fireEvent, cleanup } from "react-testing-library"
 
 import Controls from "./Controls"
 
@@ -41,5 +41,15 @@ describe("<Controls />", () => {
   it("displays close gate if the closed prop is false", () => {
     const { getByText } = render(<Controls closed={false} />)
     getByText(/close gate/i)
+  })
+
+  it("calls toggleClosed functions when close gate button clicked ", () => {
+    const toggleMock = jest.fn()
+    const { getByText } = render(
+      <Controls closed={false} toggleClosed={toggleMock} />
+    )
+    const closeGateBtn = getByText(/close gate/i)
+    fireEvent.click(closeGateBtn)
+    expect(toggleMock).toHaveBeenCalledTimes(1)
   })
 })
