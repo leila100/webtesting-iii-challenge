@@ -22,4 +22,9 @@ describe("<Controls />", () => {
     getByText(/lock gate/i)
     getByText(/close gate/i)
   })
+
+  it("displays unlock gate if the locked prop is true", () => {
+    const { getByText } = render(<Controls locked />)
+    getByText(/unlock gate/i)
+  })
 })

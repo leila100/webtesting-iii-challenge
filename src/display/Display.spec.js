@@ -3,6 +3,7 @@ import renderer from "react-test-renderer"
 import { render, cleanup } from "react-testing-library"
 
 import Display from "./Display"
+import "../index.css"
 
 afterEach(cleanup)
 
