@@ -70,4 +70,14 @@ describe("<Controls />", () => {
     fireEvent.click(lockGateBtn)
     expect(toggleMock).toHaveBeenCalledTimes(1)
   })
+
+  it("doesn't call toggleLocked functions when lock gate button clicked and gate open ", () => {
+    const toggleMock = jest.fn()
+    const { getByText } = render(
+      <Controls locked={false} closed={false} toggleLocked={toggleMock} />
+    )
+    const lockGateBtn = getByText(/lock gate/i)
+    fireEvent.click(lockGateBtn)
+    expect(toggleMock).toHaveBeenCalledTimes(0)
+  })
 })
