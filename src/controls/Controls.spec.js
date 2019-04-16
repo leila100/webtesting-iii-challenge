@@ -16,4 +16,10 @@ describe("<Controls />", () => {
   it("renders without crashing", () => {
     render(<Controls />)
   })
+
+  it("shows lock gate and close gate when passed no props", () => {
+    const { getByText } = render(<Controls />)
+    getByText(/lock gate/i)
+    getByText(/close gate/i)
+  })
 })
