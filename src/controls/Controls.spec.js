@@ -37,4 +37,9 @@ describe("<Controls />", () => {
     const { getByText } = render(<Controls closed />)
     getByText(/open gate/i)
   })
+
+  it("displays close gate if the closed prop is false", () => {
+    const { getByText } = render(<Controls closed={false} />)
+    getByText(/close gate/i)
+  })
 })
