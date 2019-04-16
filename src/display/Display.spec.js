@@ -26,4 +26,9 @@ describe("<Display />", () => {
     const { getByText } = render(<Display closed />)
     getByText(/closed/i)
   })
+
+  it("displays open if the closed prop is false", () => {
+    const { getByText } = render(<Display closed={false} />)
+    getByText(/open/i)
+  })
 })
