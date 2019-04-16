@@ -16,4 +16,10 @@ describe("<Display />", () => {
   it("renders without crashing", () => {
     render(<Display />)
   })
+
+  it("shows open and unlocked when passed no props", () => {
+    const { getByText } = render(<Display />)
+    getByText(/open/i)
+    getByText(/unlocked/i)
+  })
 })
