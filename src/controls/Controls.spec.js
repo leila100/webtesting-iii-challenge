@@ -52,4 +52,12 @@ describe("<Controls />", () => {
     fireEvent.click(closeGateBtn)
     expect(toggleMock).toHaveBeenCalledTimes(1)
   })
+
+  it("calls toggleClosed functions when open gate button clicked ", () => {
+    const toggleMock = jest.fn()
+    const { getByText } = render(<Controls closed toggleClosed={toggleMock} />)
+    const openGateBtn = getByText(/open gate/i)
+    fireEvent.click(openGateBtn)
+    expect(toggleMock).toHaveBeenCalledTimes(1)
+  })
 })
