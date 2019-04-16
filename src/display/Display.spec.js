@@ -9,7 +9,6 @@ afterEach(cleanup)
 describe("<Display />", () => {
   it("matches snapshot", () => {
     const tree = renderer.create(<Display />)
-
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
@@ -21,5 +20,10 @@ describe("<Display />", () => {
     const { getByText } = render(<Display />)
     getByText(/open/i)
     getByText(/unlocked/i)
+  })
+
+  it("displays Closed if the closed prop is true", () => {
+    const { getByText } = render(<Display closed />)
+    getByText(/closed/i)
   })
 })
