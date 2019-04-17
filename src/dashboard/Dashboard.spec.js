@@ -25,4 +25,20 @@ describe("<Dashboard />", () => {
     fireEvent.click(closeGateBtn)
     getByText(/closed/i)
   })
+
+  it("Switch Display to locked when clicking on lock gate button in Controls", () => {
+    const { getByText } = render(<Dashboard />)
+
+    // get close gate button and click it
+    const closeGateBtn = getByText(/close gate/i)
+    fireEvent.click(closeGateBtn)
+
+    // once gate is closed, can lock it
+    //get lock gate button and click it
+    const lockGateBtn = getByText(/lock gate/i)
+    fireEvent.click(lockGateBtn)
+
+    //Display should say locked
+    getByText(/locked/i)
+  })
 })
