@@ -1,6 +1,6 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import { render, cleanup } from "react-testing-library"
+import { render, fireEvent, cleanup } from "react-testing-library"
 
 import Dashboard from "./Dashboard"
 
@@ -15,5 +15,14 @@ describe("<Dashboard />", () => {
 
   it("renders without crashing", () => {
     render(<Dashboard />)
+  })
+
+  it("Switch Display to closed when clicking on close gate button in Controls", () => {
+    const { getByText } = render(<Dashboard />)
+
+    const closeGateBtn = getByText(/close gate/i)
+
+    fireEvent.click(closeGateBtn)
+    getByText(/closed/i)
   })
 })
