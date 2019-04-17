@@ -54,4 +54,23 @@ describe("<Dashboard />", () => {
     //Display should still say unlocked
     getByText(/unlocked/i)
   })
+
+  it("Clicking on open button if locked does nothing", () => {
+    const { getByText } = render(<Dashboard />)
+
+    // get close gate button and click it
+    const closeGateBtn = getByText(/close gate/i)
+    fireEvent.click(closeGateBtn)
+
+    //get lock gate button and click it
+    const lockGateBtn = getByText(/lock gate/i)
+    fireEvent.click(lockGateBtn)
+
+    // get open button and click it
+    const openBtn = getByText(/open gate/i)
+    fireEvent.click(openBtn)
+
+    //Display should still say closed
+    getByText(/closed/i)
+  })
 })
