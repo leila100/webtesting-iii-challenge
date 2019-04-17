@@ -16,3 +16,20 @@ exports[`<Display /> matches snapshot 1`] = `
   </div>
 </div>
 `;
+
+exports[`<Display /> matches snapshot with props: closed - locked 1`] = `
+<div
+  className="display panel"
+>
+  <div
+    className="led red-led"
+  >
+    Locked
+  </div>
+  <div
+    className="led red-led"
+  >
+    Closed
+  </div>
+</div>
+`;

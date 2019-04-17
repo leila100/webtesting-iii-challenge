@@ -13,6 +13,11 @@ describe("<Display />", () => {
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
+  it("matches snapshot with props: closed - locked", () => {
+    const tree = renderer.create(<Display closed locked />)
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
   it("renders without crashing", () => {
     render(<Display />)
   })
