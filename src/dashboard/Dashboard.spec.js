@@ -41,4 +41,17 @@ describe("<Dashboard />", () => {
     //Display should say locked
     getByText(/locked/i)
   })
+
+  it("When gate is open, clicking on lock gate doesn't lock the gate", () => {
+    const { getByText } = render(<Dashboard />)
+    // by default, the gate is open and unlocked
+    // and the buttons are close gate and lock gate
+
+    // get lock gate button and click it
+    const lockGateBtn = getByText(/lock gate/i)
+    fireEvent.click(lockGateBtn)
+
+    //Display should still say unlocked
+    getByText(/unlocked/i)
+  })
 })
