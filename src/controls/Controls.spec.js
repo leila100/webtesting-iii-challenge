@@ -17,6 +17,11 @@ describe("<Controls />", () => {
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
+  it("matches snapshot with props: close - locked", () => {
+    const tree = renderer.create(<Controls closed locked />)
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
+
   it("renders without crashing", () => {
     render(<Controls />)
   })
