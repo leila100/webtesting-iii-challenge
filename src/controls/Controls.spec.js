@@ -9,7 +9,11 @@ afterEach(cleanup)
 describe("<Controls />", () => {
   it("matches snapshot", () => {
     const tree = renderer.create(<Controls />)
+    expect(tree.toJSON()).toMatchSnapshot()
+  })
 
+  it("matches snapshot with props: close - unlocked", () => {
+    const tree = renderer.create(<Controls closed locked={false} />)
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
